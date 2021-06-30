@@ -13,11 +13,12 @@ class App extends Component {
   }
 
   render() {
+    const display = this.state;
     return (
       <div>
         <div className="calculator-body">
           <h1>Simple Calculator</h1>
-          <Display result={this.state.result} />
+          <Display result={display.result} />
           <ButtonPanel onClick={this.onClick} />
         </div>
       </div>
