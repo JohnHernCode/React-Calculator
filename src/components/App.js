@@ -4,8 +4,8 @@ import ButtonPanel from './ButtonPanel';
 import Display from './Display';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       result: '',
