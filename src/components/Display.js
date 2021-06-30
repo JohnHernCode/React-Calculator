@@ -1,17 +1,22 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Display = (props) => (
-  <div className="display">
-    {props}
-  </div>
-);
+const Display = (props) => {
+  const { calc } = props;
+  return (
+    <div className="display">
+      {calc}
+    </div>
+  );
+};
+
 Display.propType = {
-  props: PropTypes.string,
+  calc: PropTypes.string,
 };
 
 Display.defaultProps = {
-  props: '0',
+  calc: '0',
 };
 
 export default Display;

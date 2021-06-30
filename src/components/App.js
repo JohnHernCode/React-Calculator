@@ -1,3 +1,4 @@
+/* eslint-disable react/no-access-state-in-setstate */
 import React, { Component } from 'react';
 import '../App.css';
 import ButtonPanel from './ButtonPanel';
@@ -10,6 +11,11 @@ class App extends Component {
     this.state = {
       result: '',
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(buttonName) {
+    this.setState(this.state, buttonName);
   }
 
   render() {
