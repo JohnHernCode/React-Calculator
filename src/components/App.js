@@ -2,29 +2,39 @@ import React, { Component } from 'react';
 import '../App.css';
 import ButtonPanel from './ButtonPanel';
 import Display from './Display';
-// import calculate from '../logic/calculate';
+import calculate from '../logic/calculate';
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      result: '',
+      total: null,
+      next: null,
+      // eslint-disable-next-line react/no-unused-state
+      operation: null,
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(buttonName) {
+    const oldState = this.state;
+    this.setState(calculate(oldState, buttonName));
   }
 
   render() {
-    const display = this.state;
+    let calc;
+    const { next, total } = this.state;
+    if (next !== null) {
+      calc = next;
+    } else if (total !== null) {
+      calc = total;
+    }
     return (
-      <>
-        <div>
-          <div className="calculator-body">
-            <h1>Simple Calculator</h1>
-            <Display result={display.result} />
-            <ButtonPanel onClick={this.onClick} />
-          </div>
-        </div>
-      </>
+      <div className="app">
+        <Display calc={calc} />
+        <ButtonPanel clickHandler={this.handleClick} />
+      </div>
     );
   }
 }
