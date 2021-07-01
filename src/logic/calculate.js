@@ -1,41 +1,44 @@
 import operate from './operate';
 
-const calculate = (props, buttonName) => {
-  let { total, next, operation } = props;
-  const operands = ['+', 'X', '-', '÷'];
-  const nums = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-  if (buttonName === 'AC') {
-    [total, next, operation] = [null, null, null];
-  }
-  if (buttonName === '+/-') {
-    if (total) (total *= -1);
-    if (next) (next *= -1);
-    operation = null;
-  }
-  if (buttonName === '%') {
-    if (total) next = (0.01 * total);
-  }
-  if (buttonName === '=') {
-    if (total && next && operation) {
+const calculate = (() => {
+  const calculateOption = (calculatorObject, buttonName) => {
+    let { total, next, operation } = calculatorObject;
+    const arrOperators = ['-', '+', '%', '÷', 'X'];
+
+    if (arrOperators.includes(buttonName)) {
+      if (total !== '') {
+        next = total;
+        total = buttonName;
+        operation = buttonName;
+      }
+    } else if (buttonName === '=') {
+      if (operation === '%') {
+        total = '100';
+      }
       total = operate(total, next, operation);
-      next = null;
-      operation = null;
+    } else if (buttonName === 'AC') {
+      total = '';
+    } else if (buttonName === '.') {
+      if (total.indexOf('.') === -1) {
+        total += buttonName;
+      }
+    } else if (buttonName === '+/-') {
+      if (total.indexOf('-') === -1) {
+        total = `-${total}`;
+      } else {
+        total = total.slice(1);
+      }
+    } else if (operation !== null) {
+      const removeOperator = total.replace(operation, '');
+      total = removeOperator + buttonName;
+    } else {
+      total += buttonName;
     }
-  }
-  if (operands.includes(buttonName)) {
-    if (total) operation = buttonName;
-  } else if (operation && nums.includes(buttonName)) {
-    next = next ? next + buttonName : buttonName;
-  } else if (total && nums.includes(buttonName)) {
-    total = buttonName;
-  } else if (nums.includes(buttonName)) {
-    total = total ? total + buttonName : buttonName;
-  } else if (!next && !operation && buttonName === '.') {
-    total = total.includes(buttonName) ? total : total + buttonName;
-  } else if (total && operation && buttonName === '.') {
-    next = next.includes(buttonName) ? next : next + buttonName;
-  }
-  return { total, next, operation };
-};
+
+    return { total, next, operation };
+  };
+
+  return { calculateOption };
+})();
 
 export default calculate;
