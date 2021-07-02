@@ -27,7 +27,7 @@ const calculate = (props, name) => {
   } else if (operation && nums.includes(name)) {
     next = next ? next + name : name;
   } else if (total && nums.includes(name)) {
-    total = name;
+    total += name;
   } else if (nums.includes(name)) {
     total = total ? total + name : name;
   } else if (!next && !operation && name === '.') {
