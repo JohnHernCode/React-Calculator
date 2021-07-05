@@ -23,7 +23,7 @@ CSS, and ES6. Deployment is done via Heroku using BIG.js.
 
 ## Live Demo
 
-[Heroku Demo](https://johnherncode-react-calculator.herokuapp.com/)
+[Heroku Demo](https://johnherncode-react-calculator.herokuapp.com/) v 1.0
 
 ### Built With
 
