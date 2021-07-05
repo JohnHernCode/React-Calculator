@@ -3,19 +3,19 @@ import PropTypes from 'prop-types';
 
 const Button = (props) => {
   const {
-    name, clickHandler,
+    buttonName, clickHandler,
   } = props;
   return (
     <button
       type="button"
-      onClick={() => clickHandler(name)}
+      onClick={() => clickHandler(buttonName)}
     >
-      {name}
+      {buttonName}
     </button>
   );
 };
 Button.propTypes = {
-  name: PropTypes.string.isRequired,
+  buttonName: PropTypes.string.isRequired,
   clickHandler: PropTypes.func.isRequired,
 };
 
