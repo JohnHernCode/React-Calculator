@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+}
