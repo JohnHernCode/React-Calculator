@@ -1,4 +1,3 @@
-// import React, { Component } from 'react';
 import React, { useState, useEffect } from 'react';
 import styles from '../styles/App.module.css';
 import ButtonPanel from './ButtonPanel';
