@@ -1,9 +1,12 @@
 import React from 'react';
+import styles from '../styles/Home.module.css';
+import img from '../images/math.png';
 
 const Home = () => (
-  <div className="home">
-    <h2 className="home-header">Welcome to our page!</h2>
-    <p className="home-text">
+  <div className={styles.home}>
+    <img src={img} alt="math" />
+    <h1 className={styles.head}>OH YEAH, WE LOVE MATH!</h1>
+    <p>
       Lorem ipsum dolor sit amet, consectetur
       adipisicing elit, sed do eiusmod tempor
       incididunt ut labore et dolore magna aliqua.

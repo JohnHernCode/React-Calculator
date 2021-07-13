@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import img from '../images/fdm.jpg';
 import styles from '../styles/App.module.css';
 import ButtonPanel from './ButtonPanel';
 import Display from './Display';
@@ -42,9 +43,14 @@ const App = () => {
             path="/calculator"
             render={() => (
               <div className={styles.container}>
-                <div className={styles.app}>
-                  <Display calc={calc} />
-                  <ButtonPanel clickHandler={handleClick} />
+                <div className={styles.row}>
+                  <div className={styles.column}>
+                    <img src={img} alt="meme" className={styles.img} />
+                  </div>
+                  <div className={styles.column}>
+                    <Display calc={calc} />
+                    <ButtonPanel clickHandler={handleClick} />
+                  </div>
                 </div>
               </div>
             )}
