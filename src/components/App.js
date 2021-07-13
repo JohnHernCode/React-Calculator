@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import styles from '../styles/App.module.css';
 import ButtonPanel from './ButtonPanel';
 import Display from './Display';
 import calculate from '../logic/calculate';
+import Navbar from './Nav';
+import Home from './Home';
+import Quote from './Quote';
 
 const App = () => {
   const [total, setTotal] = useState(null);
@@ -29,14 +33,27 @@ const App = () => {
   }, [total, next]);
 
   return (
-    <>
-      <div className={styles.container}>
-        <div className={styles.app}>
-          <Display calc={calc} />
-          <ButtonPanel clickHandler={handleClick} />
-        </div>
-      </div>
-    </>
+    <Router>
+      <>
+        <Navbar />
+        <Switch>
+          <Route
+            exact
+            path="/calculator"
+            render={() => (
+              <div className={styles.container}>
+                <div className={styles.app}>
+                  <Display calc={calc} />
+                  <ButtonPanel clickHandler={handleClick} />
+                </div>
+              </div>
+            )}
+          />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/quote" component={Quote} />
+        </Switch>
+      </>
+    </Router>
   );
 };
 
