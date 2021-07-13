@@ -1,0 +1,24 @@
+.quote {
+  display: grid;
+  grid-template-columns:
+    minmax(1.2rem, 1fr)
+    minmax(auto, 57ch)
+    minmax(1.2rem, 1fr);
+}
+
+.head {
+  grid-column: 1 / 4;
+  max-width: 100ch;
+  justify-self: center;
+}
+
+p {
+  grid-column: 2;
+}
+
+img {
+  grid-column: 1 / 4;
+  width: 100%;
+  max-width: 100ch;
+  justify-self: center;
+}

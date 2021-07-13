@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../styles/Display.module.css';
 
 const Display = ({ calc }) => (
-  <div>
+  <div className={styles.display}>
     {calc}
   </div>
 );
