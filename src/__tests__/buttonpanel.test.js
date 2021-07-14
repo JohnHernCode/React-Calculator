@@ -1,22 +1,19 @@
 import React from 'react';
-
-import { shallow } from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import ButtonPanel from '../components/ButtonPanel';
 
 const clickHandler = () => ({ total: '', next: '', operation: '' });
 
-describe('ButtonPanel component', () => {
-  let wrapper;
-
+describe('ButtonPanel', () => {
   beforeEach(() => {
-    wrapper = shallow(<ButtonPanel clickHandler={clickHandler} />);
+    render(<ButtonPanel clickHandler={clickHandler} />);
   });
 
-  it('contains class group', () => {
-    expect(wrapper.find('.group')).toBeTruthy();
+  test('renders ButtonPanel correctly', () => {
+    expect(screen.getByText(/AC/)).toBeInTheDocument();
   });
 
-  it('contains the Button component', () => {
-    expect(wrapper.find('Button')).toBeTruthy();
+  test('renders only the ButtonPanel component', () => {
+    expect(screen.queryByText(/Quote of the day/)).not.toBeInTheDocument();
   });
 });
