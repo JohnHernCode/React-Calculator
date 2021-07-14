@@ -40,6 +40,25 @@ describe('calculate', () => {
     expect(JSON.parse(result.total)).toEqual(14);
   });
 
+  it('converts positive to a negative number', () => {
+    result = calculate(result, '+/-');
+    result = calculate(result, '=');
+    expect(JSON.parse(result.total)).toEqual(-14);
+  });
+
+  it('converts negative to a positive number', () => {
+    result = calculate(result, '+/-');
+    result = calculate(result, '=');
+    expect(JSON.parse(result.total)).toEqual(14);
+  });
+
+  it('divide by 0', () => {
+    result = calculate(result, '÷');
+    result = calculate(result, '0');
+    result = calculate(result, '=');
+    expect(JSON.parse(result.total)).toEqual(0);
+  });
+
   it('resets the result values', () => {
     result = calculate(result, 'AC');
     expect((result)).toEqual({ total: null, next: null, operation: null });
