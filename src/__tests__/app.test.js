@@ -1,26 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import App from '../components/App';
-// import { shallow } from 'enzyme';
-// describe('renders correctly', () => {
-//   let wrapper;
-//
-//   beforeEach(() => {
-//     wrapper = shallow(<App />);
-//   });
-//
-//   it('Contains the Navbar component', () => {
-//     expect(wrapper.find('Navbar')).toBeTruthy();
-//   });
-//
-//   it('Contains the Display component', () => {
-//     expect(wrapper.find('Display')).toBeTruthy();
-//   });
-//
-//   it('Contains the ButtonPanel component', () => {
-//     expect(wrapper.find('ButtonPanel')).toBeTruthy();
-//   });
-// });
 
 describe('App', () => {
   beforeEach(() => {
