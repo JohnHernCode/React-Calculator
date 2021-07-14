@@ -1,11 +1,17 @@
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { render, screen } from '@testing-library/react';
 import Quote from '../components/Quote';
 
-describe('Quote Component', () => {
-  it('matches snapshot', () => {
-    const tree = renderer.create(<Quote />);
+describe('Quote', () => {
+  beforeEach(() => {
+    render(<Quote />);
+  });
 
-    expect(tree).toMatchSnapshot();
+  test('renders Quote page correctly', () => {
+    expect(screen.getByText(/Quote of the day/)).toBeInTheDocument();
+  });
+
+  test('renders only the Quote component', () => {
+    expect(screen.queryByText(/We Love Math/)).not.toBeInTheDocument();
   });
 });
