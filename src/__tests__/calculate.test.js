@@ -56,7 +56,7 @@ describe('calculate', () => {
     result = calculate(result, '÷');
     result = calculate(result, '0');
     result = calculate(result, '=');
-    expect(JSON.parse(result.total)).toEqual(0);
+    expect((result.total)).toEqual('cannot divide by 0');
   });
 
   it('resets the result values', () => {
