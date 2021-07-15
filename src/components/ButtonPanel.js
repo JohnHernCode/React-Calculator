@@ -32,7 +32,7 @@ const ButtonPanel = ({ clickHandler }) => (
       <Button key="+" buttonName="+" clickHandler={clickHandler} />
     </div>
     <div className={styles.group}>
-      <Button key="0" buttonName="0" wide={100} color={Gray} clickHandler={clickHandler} />
+      <Button key="0" buttonName="0" wide color={Gray} clickHandler={clickHandler} />
       <Button key="." buttonName="." color={Gray} clickHandler={clickHandler} />
       <Button key="=" buttonName="=" clickHandler={clickHandler} />
     </div>
