@@ -64,7 +64,14 @@ To get a local copy up and running follow these simple example steps.
 4. It should automatically open in your default browser.
 
 ### How to use the calculator
-TBD
+In your browser click the link to "calculate".
+Use the calculator with the mouse. 
+
+
+### How to run the tests for the calculator
+1. cd the location you cloned/unzipped the file to.
+2. Run ```npm install``` to bundle install everything.
+3. Run ```npm test``` to run the tests.
 
 <!-- CONTACT -->
 
