@@ -19,7 +19,7 @@ CSS, and ES6. Deployment is done via Heroku using BIG.js.
 
 ## Screen Shot
 
-![screenshot](/screenshot.png)
+![screenshot](/screen.jpg)
 
 ## Live Demo
 
